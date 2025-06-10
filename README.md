@@ -1,6 +1,6 @@
 # ✋🏻 SiLa – Sign Language Application
 
-SiLa adalah aplikasi berbasis web untuk menerjemahkan bahasa isyarat secara **real-time** menggunakan kamera, serta menyediakan fitur **terjemahan video** untuk konten prarekaman. Dirancang dengan antarmuka pengguna yang responsif dan intuitif.
+**SiLa** adalah aplikasi berbasis web untuk menerjemahkan bahasa isyarat secara **real-time** menggunakan kamera, serta menyediakan fitur **terjemahan video** untuk konten prarekaman. Dirancang dengan antarmuka pengguna yang responsif dan intuitif.
 
 ---
 
@@ -23,16 +23,49 @@ SiLa adalah aplikasi berbasis web untuk menerjemahkan bahasa isyarat secara **re
 
 ## 💻 Cara Menjalankan Aplikasi Secara Lokal
 
-- Clone repositori dengan perintah:
-  - `git clone https://github.com/SiLa-Sign-Language-Application/sila-frontend.git`
-- Masuk ke direktori proyek:
-  - `cd sila-frontend`
-- Install semua dependensi dengan:
-  - `npm install`
-- Jalankan aplikasi dalam mode development:
-  - `npm run dev`
-- Aplikasi akan tersedia di:
-  - `http://localhost:5173/`
+### 1. Clone repositori
+```bash
+git clone https://github.com/SiLa-Sign-Language-Application/sila-frontend.git
+cd sila-frontend
+```
+
+### 2. Install dependensi
+```bash
+npm install
+```
+
+### 3. Jalankan aplikasi
+```bash
+npm run dev
+```
+
+Aplikasi akan berjalan di:
+```
+http://localhost:5173/
+```
+
+---
+
+## ⚙️ Koneksi dengan Backend Lokal
+
+Untuk menjalankan aplikasi dengan backend FastAPI lokal, **pastikan kamu sudah menjalankan backend di `http://127.0.0.1:8000`**, lalu **ubah URL API pada file berikut**:
+
+### ✏️ Ubah di `GestureComponent.jsx`
+```js
+// Sebelumnya:
+const API_URL = "https://sila-backend-production.up.railway.app/predict";
+
+// Ubah menjadi:
+const API_URL = "http://127.0.0.1:8000/predict";
+```
+
+### ✏️ Ubah di `VideoComponent.jsx` *(jika ada endpoint untuk video)*
+```js
+// Contoh jika kamu menggunakan endpoint predict untuk video:
+const API_URL = "http://127.0.0.1:8000/predict";
+```
+
+> ⚠️ Pastikan CORS di backend sudah diatur untuk mengizinkan akses dari `http://localhost:5173`.
 
 ---
 
@@ -57,6 +90,8 @@ sila-frontend/
 │   │   ├── css/
 │   │   └── images/
 │   ├── components/
+│   │   ├── GestureComponent.jsx
+│   │   └── VideoComponent.jsx
 │   ├── data/
 │   └── pages/
 ├── .gitignore
@@ -65,3 +100,4 @@ sila-frontend/
 ├── README.md
 ├── vite.config.js
 └── vercel.json
+```
