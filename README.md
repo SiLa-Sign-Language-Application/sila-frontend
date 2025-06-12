@@ -101,3 +101,34 @@ sila-frontend/
 ├── vite.config.js
 └── vercel.json
 ```
+## 📁 api/feedbackApi.js
+
+## 📡 API Endpoint: Feedback Submission
+
+Aplikasi ini menggunakan layanan **[SheetBest](https://sheet.best/)** sebagai backend sederhana untuk menyimpan data feedback pengguna ke dalam Google Sheets. Data dikirim ke endpoint API menggunakan metode `POST`.
+
+### 🔗 API Endpoints
+
+#### Feedback
+
+**POST** `https://api.sheetbest.com/sheets/b7dbf6d5-3a56-4566-98e3-ec3210f0f13b`: Submit user feedback data to Google Sheets via SheetBest API
+
+### 📤 Data yang Dikirim
+
+Setiap kali pengguna mengirimkan feedback, aplikasi akan mengirim data ke endpoint dalam format JSON dengan struktur berikut:
+
+```json
+{
+  "name": "userXXXX",
+  "feedback": "Teks feedback dari pengguna",
+  "rating": "Nilai rating (misal: 4 atau 5)",
+  "timestamp": "Waktu pengiriman dalam format ISO (YYYY-MM-DDTHH:MM:SSZ)"
+}
+```
+
+#### Penjelasan Field:
+
+* `name`: ID pengguna acak yang digenerate otomatis (misalnya, `user1234`)
+* `feedback`: Isi feedback dari pengguna
+* `rating`: Nilai rating (biasanya berupa angka, misalnya 1–5)
+* `timestamp`: Tanggal dan waktu pengiriman dalam format ISO 8601
