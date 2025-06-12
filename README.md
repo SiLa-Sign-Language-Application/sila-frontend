@@ -101,6 +101,9 @@ sila-frontend/
 ├── vite.config.js
 └── vercel.json
 ```
+
+---
+
 ## 📁 api/feedbackApi.js
 
 ## 📡 API Endpoint: Feedback Submission
