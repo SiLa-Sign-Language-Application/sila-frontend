@@ -23,6 +23,11 @@
 
 ## 💻 Cara Menjalankan Aplikasi Secara Lokal
 
+Download Node.Js pada link berikut
+```bash
+https://nodejs.org/en/download
+```
+
 ### 1. Clone repositori
 ```bash
 git clone https://github.com/SiLa-Sign-Language-Application/sila-frontend.git
